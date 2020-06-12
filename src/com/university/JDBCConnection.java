@@ -1,4 +1,4 @@
-package database.Creation;
+package com.university;
 import java.sql.*;
 public class JDBCConnection {
 	private final String url;
@@ -17,6 +17,12 @@ public class JDBCConnection {
 	{
 		JDBCConnection jdConnectionTest = new JDBCConnection("Attendance");
 		Connection con = jdConnectionTest.testJDBCConnection();
+		jdConnectionTest.testCRUDOperation(con, "count");
+	}
+	public void testCRUDOperation(Connection con, String operationType) throws SQLException {
+		
+		if(operationType.equalsIgnoreCase("insert")) {
+		} 
 	}
 	
 		public Connection testJDBCConnection() {
