@@ -48,7 +48,7 @@ public class Login
 		System.out.println("enter your password");
 		Password=sc.next();
 		
-		final String query = "INSERT INTO Login(User_name , Password , Emp_id ) VALUES( 'User_name', 'Password','emp_id')";
+		final String query = "INSERT INTO login(uname , pass, emp_id,lid) VALUES( '" + User_name + "', '" + Password + "','" + emp_id + "',9)";
 		Statement stmt = con.createStatement();
 		int inserted = stmt.executeUpdate(query);
 		System.out.println(inserted + " database Updated");
@@ -64,7 +64,7 @@ public class Login
 		User_name = sc.next();
 		System.out.println("enter your password");
 		Password = sc.next();
-		final String query = "INSERT INTO Login( User_name, password,Student_id) VALUES('User_name', 'Password','Student_id' )";
+		final String query = "INSERT INTO login( uname, pass,student_id,lid) VALUES('" + User_name + "', '" + Password + "','" + Student_id + "',9 )";
 		Statement stmt = con.createStatement();
 		int inserted = stmt.executeUpdate(query);
 		System.out.println(inserted + " database Updated");
