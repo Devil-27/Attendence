@@ -71,6 +71,34 @@ public class Student {
 			
 				}
 		}
+	
+/*	public void checkattendence()
+	{
+		System.out.println("enter your student id");
+		String st = sc.next();
+		try {
+		final String query = "SELECT studend_id,department_id,student_name,attendance_marked, date FROM  student,attendance where student_id='st' ";
+		
+		Statement stmt;
+			stmt = con.createStatement();
+		
+		ResultSet rs= stmt.executeQuery(query);
+		
+				while(rs.next()!=false)
+				{
+				
+					String n = rs.getString(1);
+					String str = rs.getString(2);
+					String pass = rs.getString(3);
+					System.out.println("Student Id = " + n + ", Student Name = " + str.trim() + ", Department Id = " + pass.trim());
+				}
+			}
+				 catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					
+	}*/
 			
 		
 	}

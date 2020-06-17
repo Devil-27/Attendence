@@ -48,5 +48,33 @@ public class Teacher
 		
 	}
 	
+/*	public void class_details()
+	{
+		try {
+		final String query = "SELECT * FROM  teacher ";
+		
+		Statement stmt;
+			stmt = con.createStatement();
+		
+		ResultSet rs= stmt.executeQuery(query);
+		
+				while(rs.next()!=false)
+				{
+				
+					String n = rs.getString(1);
+					String str = rs.getString(2);
+					String pass = rs.getString(3);
+					String eid = rs.getString(4);
+					String name = rs.getString(5);
+					System.out.println("Username = " + n + ", Student_id = " + str.trim() + ", Department Id = " + pass + "Employee_id = " + eid + "Employee Name = " +name );
+				}
+			}
+				 catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+
+	}*/
+	
 
 }
