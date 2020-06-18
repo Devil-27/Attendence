@@ -15,28 +15,79 @@ public class Login
 	String User_name=null;
 	String Password=null;
 	
-	 void user_input() throws SQLException
+	
+	public void teacherData() throws SQLException
 	{
-		System.out.println("1 for Teacher");
-		System.out.println("2 for Student");
-		System.out.println("enter your Choice");
-		 int ch=sc.nextInt();
-		switch(ch)
-		{
-		case 1: teacher();
-		break;
-		case 2: student();
-		break;
-		}
+		String n = null , pass = null , emp_id = null;
+		System.out.println("Enter your username");
+		String usr = sc.next();
+		System.out.println("Enter your password");
+		String pas = sc.next();
+		System.out.println("Enter your Emp-id");
+		String emp = sc.next();
+		Statement stmt;
+		stmt = con.createStatement();
+		final String query = "SELECT uname,pass,emp_id FROM  login ";
+		ResultSet rs= stmt.executeQuery(query);
+	
+			while(rs.next()!=false)
+			{
+			
+				n = rs.getString(1);
+				pass = rs.getString(2);
+				emp_id = rs.getString(4);
+			}
+			if(n==usr && pass == pas && emp_id == emp )
+			{
+				final String query2 = "select * from teacher where emp='emp'";
+				rs= stmt.executeQuery(query2);
+				while(rs.next()!= false)
+				{
+					String q = rs.getString(1);
+					String w = rs.getString(1);
+					String e = rs.getString(1);
+					String r = rs.getString(1);
+					String t = rs.getString(1);
+					System.out.println(" Username " + q + "Student id " + w + "Department id" + e + "Employee id" + r + "Employee Name" + t);
+				}
+			}
+	}
+	public void studentData()throws SQLException
+	{
+		String n = null , pass = null , student_id = null;
+		System.out.println("Enter your username");
+		String usr = sc.next();
+		System.out.println("Enter your password");
+		String pas = sc.next();
+		System.out.println("Enter your Student-id");
+		String emp = sc.next();
+		Statement stmt;
+		stmt = con.createStatement();
+		final String query = "SELECT uname,pass,student_id FROM  login ";
+		ResultSet rs= stmt.executeQuery(query);
+	
+			while(rs.next()!=false)
+			{
+			
+				n = rs.getString(1);
+				pass = rs.getString(2);
+				student_id = rs.getString(4);
+			}
+			if(n==usr && pass == pas && student_id == emp )
+			{
+				final String query2 = "select * from student where student_id='stu'";
+				rs= stmt.executeQuery(query2);
+				while(rs.next()!= false)
+				{
+					String q = rs.getString(1);
+					String w = rs.getString(2);
+					String e = rs.getString(3);
+					System.out.println("Student id " + q +  "student Name" + w + "Department id" + e);
+				}
+			}
 		
 	}
 	
-	public static void main(String[] args) throws SQLException
-	{
-		
-		Login lin=new Login();
-		  lin.user_input();
-	}
 	
 	 public void teacher() throws SQLException
 	{
@@ -69,5 +120,6 @@ public class Login
 		int inserted = stmt.executeUpdate(query);
 		System.out.println(inserted + " database Updated");
 		
-}
+	}
+
 }

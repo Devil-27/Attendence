@@ -13,11 +13,27 @@ public class Teacher
 	public static void main(String[] args) throws SQLException
 	{
 		Teacher teach = new Teacher();
-		teach.input();
+		
+		teach.choice();
 				
 	}
 	
-	 public void input() throws SQLException
+	public void choice()throws SQLException
+	{
+		System.out.println("1 for insert the information in databasse");
+		System.out.println("2 for check the attendence of the class");
+		System.out.println("enter your choice");
+		int ch = sc.nextInt();
+			switch(ch)
+			{
+			case 1: input();
+			break;
+			case 2: class_details();
+			break;
+			}
+		}
+
+	public void input() throws SQLException
 	{
 		 
 		System.out.println("enter your UserName");
@@ -48,9 +64,9 @@ public class Teacher
 		
 	}
 	
-/*	public void class_details()
+	public void class_details()
 	{
-		try {
+		/*try {
 		final String query = "SELECT * FROM  teacher ";
 		
 		Statement stmt;
@@ -72,9 +88,9 @@ public class Teacher
 				 catch (SQLException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
-					}
+					}*/
 
-	}*/
+	}
 	
 
 }

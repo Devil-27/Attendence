@@ -12,9 +12,28 @@ public class Student {
 	public static void main(String[] args) throws SQLException
 	{
 		Student stu = new Student();
-		stu.input();
+		stu.choice();
 				
 	}
+	
+	public void choice()throws SQLException
+	{
+		System.out.println("1 for insert the information in databasse");
+		System.out.println("2 for check the details of the class");
+		System.out.println("3 for check your attendance");
+		System.out.println("enter your choice");
+		int ch = sc.nextInt();
+			switch(ch)
+			{
+			case 1: input();
+			break;
+			case 2: show();
+			break;
+			case 3: checkattendence();
+			break;
+			}
+		}
+	
 	
 	 public void input() throws SQLException
 	{
@@ -28,7 +47,6 @@ public class Student {
 		
 	    
 	     dataInsertion(name,dept,stuId);
-	     show();
 	
 	}
 	 
@@ -72,9 +90,9 @@ public class Student {
 				}
 		}
 	
-/*	public void checkattendence()
+	public void checkattendence()
 	{
-		System.out.println("enter your student id");
+		/*System.out.println("enter your student id");
 		String st = sc.next();
 		try {
 		final String query = "SELECT studend_id,department_id,student_name,attendance_marked, date FROM  student,attendance where student_id='st' ";
@@ -96,9 +114,9 @@ public class Student {
 				 catch (SQLException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
-					}
+					}*/
 					
-	}*/
+	}
 			
 		
 	}
