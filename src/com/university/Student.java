@@ -92,7 +92,7 @@ public class Student {
 	
 	public void checkattendence()
 	{
-		/*System.out.println("enter your student id");
+		System.out.println("enter your student id");
 		String st = sc.next();
 		try {
 		final String query = "SELECT studend_id,department_id,student_name,attendance_marked, date FROM  student,attendance where student_id='st' ";
@@ -114,7 +114,7 @@ public class Student {
 				 catch (SQLException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
-					}*/
+					}
 					
 	}
 			

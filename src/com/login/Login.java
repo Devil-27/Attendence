@@ -3,12 +3,16 @@ import java.sql.*;
 import java.util.*;
 
 import com.university.JDBCConnection;
+import com.university.Student;
+import com.university.Teacher;
 
 public class Login 
 {
 	JDBCConnection jdbc = new JDBCConnection("Attendance");
 	Connection con = jdbc.testJDBCConnection();
 	Scanner sc = new Scanner(System.in);
+	Teacher teach = new Teacher();
+	Student st = new Student();
 
 	String emp_id=null;
 	String Student_id=null;
@@ -39,17 +43,7 @@ public class Login
 			}
 			if(n==usr && pass == pas && emp_id == emp )
 			{
-				final String query2 = "select * from teacher where emp='emp'";
-				rs= stmt.executeQuery(query2);
-				while(rs.next()!= false)
-				{
-					String q = rs.getString(1);
-					String w = rs.getString(1);
-					String e = rs.getString(1);
-					String r = rs.getString(1);
-					String t = rs.getString(1);
-					System.out.println(" Username " + q + "Student id " + w + "Department id" + e + "Employee id" + r + "Employee Name" + t);
-				}
+				teach.class_details();
 			}
 	}
 	public void studentData()throws SQLException
@@ -63,7 +57,7 @@ public class Login
 		String emp = sc.next();
 		Statement stmt;
 		stmt = con.createStatement();
-		final String query = "SELECT uname,pass,student_id FROM  login ";
+		final String query = "SELECT uname,pass,student_id FROM  login_student ";
 		ResultSet rs= stmt.executeQuery(query);
 	
 			while(rs.next()!=false)
@@ -75,15 +69,7 @@ public class Login
 			}
 			if(n==usr && pass == pas && student_id == emp )
 			{
-				final String query2 = "select * from student where student_id='stu'";
-				rs= stmt.executeQuery(query2);
-				while(rs.next()!= false)
-				{
-					String q = rs.getString(1);
-					String w = rs.getString(2);
-					String e = rs.getString(3);
-					System.out.println("Student id " + q +  "student Name" + w + "Department id" + e);
-				}
+				st.show();
 			}
 		
 	}
@@ -99,7 +85,7 @@ public class Login
 		System.out.println("enter your password");
 		Password=sc.next();
 		
-		final String query = "INSERT INTO login(uname , pass, emp_id,lid) VALUES( '" + User_name + "', '" + Password + "','" + emp_id + "',9)";
+		final String query = "INSERT INTO login(uname , pass, emp_id) VALUES( '" + User_name + "', '" + Password + "','" + emp_id + "')";
 		Statement stmt = con.createStatement();
 		int inserted = stmt.executeUpdate(query);
 		System.out.println(inserted + " database Updated");
@@ -115,7 +101,7 @@ public class Login
 		User_name = sc.next();
 		System.out.println("enter your password");
 		Password = sc.next();
-		final String query = "INSERT INTO login( uname, pass,student_id,lid) VALUES('" + User_name + "', '" + Password + "','" + Student_id + "',9 )";
+		final String query = "INSERT INTO login_student( uname, password,student_id) VALUES('" + User_name + "', '" + Password + "','" + Student_id + "' )";
 		Statement stmt = con.createStatement();
 		int inserted = stmt.executeUpdate(query);
 		System.out.println(inserted + " database Updated");

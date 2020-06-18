@@ -66,7 +66,7 @@ public class Teacher
 	
 	public void class_details()
 	{
-		/*try {
+		try {
 		final String query = "SELECT * FROM  teacher ";
 		
 		Statement stmt;
@@ -88,7 +88,7 @@ public class Teacher
 				 catch (SQLException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
-					}*/
+					}
 
 	}
 	

@@ -15,7 +15,7 @@ public class Handler {
 		try 
 		{
 			
-			hand.user_input();
+			hand.userInput();
 		} 
 		catch (SQLException e) 
 		{
@@ -24,10 +24,10 @@ public class Handler {
 	}
 	
 	
-	public void user_input() throws SQLException
+	public void userInput() throws SQLException
 	{
-		System.out.println("1 for Teacher");
-		System.out.println("2 for Student");
+		System.out.println("1 for old user");
+		System.out.println("2 for new user");
 		System.out.println("enter your Choice");
 		 int ch=sc.nextInt();
 		switch(ch)

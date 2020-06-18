@@ -43,6 +43,7 @@ public class Attendencee
 		 SimpleDateFormat objSDF = new SimpleDateFormat(strDateFormat);
 		 System.out.println(objSDF.format(objDate));
 		 
+		 
 		 try {
 			 
 			final String query = "INSERT INTO attendance(student_id,emp_id,department_id,attendance_marked) VALUES( '" + stuId + "','" + emp + "', '" + dept + "','"+ ch +"' )";
