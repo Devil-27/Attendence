@@ -1,4 +1,4 @@
-package com.university;
+package com.dbconnection;
 import java.sql.*;
 public class JDBCConnection {
 	private final String url;

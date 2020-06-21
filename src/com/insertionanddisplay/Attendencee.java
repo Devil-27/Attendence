@@ -1,8 +1,11 @@
-package com.university;
+package com.insertionanddisplay;
 
 import java.sql.*;
 import java.util.*;
 import java.util.Date;
+
+import com.dbconnection.JDBCConnection;
+
 import java.text.SimpleDateFormat;
 
 
@@ -13,36 +16,17 @@ public class Attendencee
 	Connection con = jdbc.testJDBCConnection();
 	Scanner sc = new Scanner(System.in);
 
-
-	public static void main(String[] args) throws SQLException
-	{
-		Attendencee atd = new Attendencee();
-		atd.input();
-				
-	}
 	
-	 public void input() throws SQLException
-	{
-		 System.out.println("Enter your Employee Id");
-		 String emp = sc.next();
-		System.out.println("Enter your department_Id");
-		String dept = sc.next();
-		System.out.println("Enter your Student's ID ");
-		String stuId = sc.next();
-		System.out.println("Enter Attendence");
-		char ch = sc.next().charAt(0);
-		
-		marking(dept,stuId,ch,emp);
-		
-	}
-	 
-	 public void marking(String dept,String stuId, char ch,String emp)
+	 public void marking(String dept,String stuId,String emp)
 	 {
 		 Date objDate = new Date();
 		 String strDateFormat = "dd-MMM-yyyy";
 		 SimpleDateFormat objSDF = new SimpleDateFormat(strDateFormat);
 		 System.out.println(objSDF.format(objDate));
 		 
+		 System.out.print("Student id = "+ stuId + "Department id" + dept +"Teacher Id" + emp + " " );
+		 boolean ch = sc.nextBoolean();
+		 System.out.print(" Attendance = " +ch);
 		 
 		 try {
 			 

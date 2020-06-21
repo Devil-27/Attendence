@@ -1,6 +1,8 @@
-package com.university;
+package com.insertionanddisplay;
 import java.sql.*;
 import java.util.*;
+
+import com.dbconnection.JDBCConnection;
 public class Student {
 	
 
@@ -9,29 +11,23 @@ public class Student {
 	Scanner sc = new Scanner(System.in);
 
 
-	public static void main(String[] args) throws SQLException
-	{
-		Student stu = new Student();
-		stu.choice();
-				
-	}
 	
 	public void choice()throws SQLException
 	{
-		System.out.println("1 for insert the information in databasse");
-		System.out.println("2 for check the details of the class");
-		System.out.println("3 for check your attendance");
-		System.out.println("enter your choice");
+		System.out.println("What do you want to do: ");
+		System.out.println("1 for check you details");
+		System.out.println("2 for check your attendence");
+		System.out.println("Enter your preferance");
 		int ch = sc.nextInt();
-			switch(ch)
-			{
-			case 1: input();
+		switch(ch)
+		{
+		
+		case 1: show();
 			break;
-			case 2: show();
+		case 2:checkattendence();
 			break;
-			case 3: checkattendence();
-			break;
-			}
+		}
+		
 		}
 	
 	
@@ -90,12 +86,12 @@ public class Student {
 				}
 		}
 	
-	public void checkattendence()
+	@SuppressWarnings("unused")
+	public void checkattendence() throws SQLException
 	{
 		System.out.println("enter your student id");
-		String st = sc.next();
-		try {
-		final String query = "SELECT studend_id,department_id,student_name,attendance_marked, date FROM  student,attendance where student_id='st' ";
+		String str1 = sc.next();
+		final String query = "SELECT studend_id,department_id,student_name,attendance_marked, date FROM  student,attendance where student_id='str1' ";
 		
 		Statement stmt;
 			stmt = con.createStatement();
@@ -111,12 +107,5 @@ public class Student {
 					System.out.println("Student Id = " + n + ", Student Name = " + str.trim() + ", Department Id = " + pass.trim());
 				}
 			}
-				 catch (SQLException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
 					
-	}
-			
-		
 	}

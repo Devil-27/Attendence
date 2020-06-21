@@ -1,10 +1,10 @@
-package com.login;
+package com.utility;
 import java.sql.*;
 import java.util.*;
 
-import com.university.JDBCConnection;
-import com.university.Student;
-import com.university.Teacher;
+import com.dbconnection.JDBCConnection;
+import com.insertionanddisplay.Student;
+import com.insertionanddisplay.Teacher;
 
 public class Login 
 {
@@ -19,6 +19,11 @@ public class Login
 	String User_name=null;
 	String Password=null;
 	
+	/**
+	 * this function is used to call the choice function of the teacher class.
+	 * After checking the username password and employee id
+	 * @throws SQLException
+	 */
 	
 	public void teacherData() throws SQLException
 	{
@@ -43,9 +48,17 @@ public class Login
 			}
 			if(n==usr && pass == pas && emp_id == emp )
 			{
-				teach.class_details();
+				
+				teach.choice();
+				
 			}
 	}
+	
+	/**
+	 * this function is used to access the student table and check the attendance and the details of the student.
+	 * @throws SQLException
+	 */
+	
 	public void studentData()throws SQLException
 	{
 		String n = null , pass = null , student_id = null;
@@ -69,11 +82,16 @@ public class Login
 			}
 			if(n==usr && pass == pas && student_id == emp )
 			{
-				st.show();
+				st.choice();
+				
 			}
 		
 	}
 	
+	/**
+	 * teacher function is use to insert the data of the login_teacher in the database.
+	 * 
+	 */
 	
 	 public void teacher() throws SQLException
 	{
@@ -91,7 +109,10 @@ public class Login
 		System.out.println(inserted + " database Updated");
 		
 	}
-	
+	/**
+	 * this function is use to insert the data inside the login_student database.
+	 * @throws SQLException
+	 */
 	   public void student() throws SQLException
 	{
 		
